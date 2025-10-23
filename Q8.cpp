@@ -1,25 +1,26 @@
 #include <stdio.h>
 
-int factorial(int num) {
-    int fact = 1;
-    for(int i = 1; i <= num; i++) {
-        fact = fact * i;
-    }
-    return fact;
-}
-
 int main() {
-	
-    int num;
+    char str1[100], str2[100];
+    int i = 0, check = 0;
 
-    printf("Enter the value of n: ");
-    scanf("%d", &num);
+    printf("Enter First String: ");
+    scanf("%s", str1);
+    printf("Enter Second String: ");
+    scanf("%s", str2);
 
-    for(int i = 0; i < num; i++) {
-        int catalanNumber = factorial(2 * i) / (factorial(i + 1) * factorial(i));
-        printf("Catalan number %d: %d\n", i + 1, catalanNumber);
+    while(str1[i] != '\0' && str2[i] != '\0') {
+        if(str1[i] != str2[i]) {
+            check = 1;
+            break;
+        }
+        i++;
     }
+
+    if(check == 0 && str1[i] == '\0' && str2[i] == '\0')
+        printf("Strings are Equal.\n");
+    else
+        printf("Strings are Not Equal.\n");
 
     return 0;
 }
-
